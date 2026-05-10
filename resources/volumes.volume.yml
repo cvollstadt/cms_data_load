@@ -1,0 +1,16 @@
+# Unity Catalog Volumes for CMS Data Pipeline
+resources:
+  volumes:
+    cms_landing:
+      name: cms_landing
+      catalog_name: ${var.catalog}
+      schema_name: ${var.schema}
+      volume_type: MANAGED
+      comment: "Landing zone for CMS CSV files extracted from zip downloads"
+    
+    cms_checkpoints:
+      name: cms_checkpoints
+      catalog_name: ${var.catalog}
+      schema_name: ${var.schema}
+      volume_type: MANAGED
+      comment: "Auto Loader checkpoint locations for incremental processing"

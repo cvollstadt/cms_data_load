@@ -1,0 +1,48 @@
+# Historical Backfill Job for CMS Data
+# One-time execution to load 5 years of historical data
+resources:
+  jobs:
+    cms_backfill_job:
+      name: CMS Data Historical Backfill
+      
+      tasks:
+        - task_key: backfill_orchestrator
+          notebook_task:
+            notebook_path: ../src/orchestrator.py
+            base_parameters:
+              mode: "backfill"
+              start_year: "2020"
+              end_year: "2024"
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              max_parallel: "10"
+          
+          new_cluster:
+            spark_version: "15.4.x-scala2.12"
+            node_type_id: "i3.xlarge"
+            num_workers: 4
+            spark_conf:
+              "spark.databricks.delta.optimizeWrite.enabled": "true"
+              "spark.databricks.delta.autoCompact.enabled": "true"
+          
+          timeout_seconds: 43200  # 12 hours
+          max_retries: 1
+      
+      email_notifications:
+        on_success:
+          - cvollstadt@gmail.com
+        on_failure:
+          - cvollstadt@gmail.com
+      
+      parameters:
+        - name: start_year
+          default: "2020"
+        - name: end_year  
+          default: "2024"
+        - name: max_parallel
+          default: "10"
+      
+      tags:
+        environment: ${bundle.target}
+        purpose: "historical_backfill"
+        data_source: "cms_gov"
