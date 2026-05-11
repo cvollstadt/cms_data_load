@@ -17,7 +17,7 @@ resources:
             base_parameters:
               mode: "incremental"
               catalog: ${var.catalog}
-              schema: ${var.schema}
+              schema: ${resources.schemas.cms_data_schema.name}
               max_parallel: "5"
           
           timeout_seconds: 7200  # 2 hours

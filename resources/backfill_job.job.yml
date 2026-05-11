@@ -14,7 +14,7 @@ resources:
               start_year: "2025"
               end_year: "2026"
               catalog: ${var.catalog}
-              schema: ${var.schema}
+              schema: ${resources.schemas.cms_data_schema.name}
               max_parallel: "5"
           
           timeout_seconds: 43200  # 12 hours
