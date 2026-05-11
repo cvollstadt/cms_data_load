@@ -1,4 +1,4 @@
-﻿{
+{
     "mappings":  [
                      {
                          "url_pattern":  "https://www.cms.gov/files/zip/monthly-contract-summary-report-{month_name}-{year}.zip",

@@ -1,0 +1,9 @@
+# CMS Checkpoints Volume
+resources:
+  volumes:
+    cms_checkpoints:
+      name: cms_checkpoints
+      catalog_name: ${var.catalog}
+      schema_name: ${var.schema}
+      volume_type: MANAGED
+      comment: "Auto Loader checkpoint locations for incremental processing"

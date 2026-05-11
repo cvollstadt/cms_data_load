@@ -1,0 +1,10 @@
+# Unity Catalog Schema for CMS Data Pipeline
+resources:
+  schemas:
+    cms_data_schema:
+      name: ${var.schema}
+      catalog_name: ${var.catalog}
+      comment: "CMS data pipeline schema - contains raw CMS data tables and volumes"
+      properties:
+        purpose: "cms_data_pipeline"
+        managed_by: "databricks_asset_bundle"

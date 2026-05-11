@@ -50,6 +50,7 @@ print()
 
 # COMMAND ----------
 
+# DBTITLE 1,Cell 6
 # Load table mappings
 with open("/Workspace/Users/cvollstadt@gmail.com/cms_data_load/src/table_mappings.json", "r") as f:
     config = json.load(f)

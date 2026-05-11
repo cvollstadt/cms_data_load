@@ -1,0 +1,9 @@
+# CMS Landing Volume
+resources:
+  volumes:
+    cms_landing:
+      name: cms_landing
+      catalog_name: ${var.catalog}
+      schema_name: ${var.schema}
+      volume_type: MANAGED
+      comment: "Landing zone for CMS CSV files extracted from zip downloads"
