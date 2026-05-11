@@ -86,6 +86,32 @@ df = (spark.readStream
 
 # COMMAND ----------
 
+# DBTITLE 1,Standardize column names to snake_case
+import re
+
+def to_snake_case(name: str) -> str:
+    """Convert column name to snake_case: lowercase with underscores."""
+    # Replace special characters and spaces with underscores
+    name = re.sub(r'[^a-zA-Z0-9]+', '_', name)
+    # Convert to lowercase
+    name = name.lower()
+    # Remove leading/trailing underscores
+    name = name.strip('_')
+    # Replace multiple consecutive underscores with single underscore
+    name = re.sub(r'_+', '_', name)
+    return name
+
+# Standardize all column names to snake_case
+original_columns = df.schema.names
+for col_name in original_columns:
+    snake_col = to_snake_case(col_name)
+    if col_name != snake_col:
+        df = df.withColumnRenamed(col_name, snake_col)
+
+print(f"✓ Standardized {len(original_columns)} column names to snake_case")
+
+# COMMAND ----------
+
 # Add metadata columns for lineage and tracking
 df_with_metadata = (df
     .withColumn("_load_timestamp", current_timestamp())

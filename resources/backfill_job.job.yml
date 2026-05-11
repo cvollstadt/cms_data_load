@@ -11,8 +11,8 @@ resources:
             notebook_path: ../src/orchestrator.py
             base_parameters:
               mode: "backfill"
-              start_year: "2020"
-              end_year: "2024"
+              start_year: "2021"
+              end_year: "2026"
               catalog: ${var.catalog}
               schema: ${var.schema}
               max_parallel: "10"
@@ -28,9 +28,9 @@ resources:
       
       parameters:
         - name: start_year
-          default: "2020"
+          default: "2021"
         - name: end_year  
-          default: "2024"
+          default: "2026"
         - name: max_parallel
           default: "10"
       

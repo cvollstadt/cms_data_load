@@ -154,6 +154,7 @@ print("\n✅ Test 5 PASSED: Utility functions work")
 # COMMAND ----------
 
 # Load and validate table mappings
+import json
 with open("/Workspace/Users/cvollstadt@gmail.com/cms_data_load/src/table_mappings.json", "r") as f:
     config = json.load(f)
     mappings = config["mappings"]
