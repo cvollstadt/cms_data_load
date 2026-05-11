@@ -1,0 +1,28 @@
+Report	Description
+Monthly Contract and Enrollment Summary Report	Provides the number of contracts, MA only enrollment, Part D enrollment, and total enrollment by organization type. This report contains all organization types.
+Monthly Enrollment by Contract	Provides monthly enrollment for each contract. This report contains all organization types.
+Monthly Enrollment by Contract/Plan/State/County	Provides monthly enrollment at the contract/plan/state/county level for all organization types.
+Monthly Enrollment by Plan	Provides monthly enrollment at the contract/plan level for all organization types.
+Monthly Enrollment by State	Provides monthly the number of Medicare members (eligibles), MA enrolled, Other enrolled and PDP enrolled for each state.
+Monthly MA Enrollment by State/County/Contract	Provides monthly enrollment at the state/county/contract level for all organization types except for PDP and employer-direct PDP. Note: An abridged version is also provided that excludes rows with 10 or less enrollees.
+Monthly PDP Enrollment by State/County/Contract	Provides monthly enrollment at the state/county/contract level for PDP and employer-direct PDP organizations. Note: An abridged version is also provided that excludes rows with 10 or less enrollees.
+Monthly MA Enrollment by State/County/Plan Type	Provides the monthly enrollment at the state/county/plan type (Plan Benefit Package type) for all organization types except for PDP and employer-direct PDP organizations.
+Monthly PDP Enrollment by State/County/Plan Type	Provides the monthly enrollment at the state/county/plan type (Plan Benefit Package type) for all PDP and employer-direct PDP organizations.
+MA State/County Penetration	Provides MA market penetration rates at the state/county level.
+PDP State/County Penetration	Provides PDP market penetration rates at the state/county level.
+MA Contract Service Area by State/County	Provides contract service area by state and county for all organization types except for PDP and employer-direct PDP.
+PDP Contract Service Area by State/County	Provides contract service area by state and county for PDP and employer-direct PDP organizations.
+State Service Area	Provides the list of states covered in whole or in part by each contract. This file contains all organization types.
+Enforcement Letters	Provides data on enforcement actions taken by CMS against MA and PDP organizations since January 2006.
+Corrective Action Plans	Information on ad hoc Corrective Action Plan (CAP) requests can now be found using this link: /Medicare/Compliance-and-Audits/Part-C-and-Part-D-Compliance-and-Audits/Part-C-and-Part-D-Compliance-Actions.
+Special Needs Plan (SNP) Data	Provides monthly plan enrollment for each SNP and provides totals by SNP type.
+HEDIS Public Use Files	Provides annual Medicare Health Plan Employer Data and Information Set (HEDIS) performance measures.
+MA Plan Directory	Provides a plan contact for each MA, cost, PACE, and demo organization. Note: This directory is populated using the Plan Directory Contact for public web site field maintained by organizations in HPMS.
+PDP Plan Directory	Provides a plan contact for each PDP organization. Note: This directory is populated using the Plan Directory Contact for public web site field maintained by organizations in HPMS.
+MA Claims Processing Contacts	Provides a claims processing contact for each MA, cost, PACE, and demo organization. Note: This directory is populated using the MA Claims Processing Contact field maintained by organizations in HPMS.
+LIS Enrollment by Plan	Provides low income subsidy enrollment at the contract/plan level for all organizations offering Part D.
+LIS Contract Enrollment by County	Provides low income subsidy enrollment at the contract/plan level for all organizations offering Part D.
+Plan Crosswalks	Provides the list of annual plan crosswalks for all organization types.
+Benefits Data	Provides approved MA and Part D benefits information for all organizations that submit a bid.
+Monthly Online Enrollment Center (OEC) Report	Provides the total number of enrollments received through the OEC, the number of PDP enrollments received through the OEC, and the number of MA enrollments received through the OEC by month. 
+MPF Benefit Summary File	Provides a summarized view of the Part C benefits offered by Medicare Advantage, 1876 Cost, and demonstration organizations as displayed on MPF. 

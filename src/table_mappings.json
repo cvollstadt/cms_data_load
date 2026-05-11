@@ -1,154 +1,247 @@
-{
-  "mappings": [
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/monthly-contract-summary-report-{month_name}-{year}.zip",
-      "table_name": "contract_summary_report",
-      "parameters": ["month_name", "year"],
-      "landing_path": "contract_summary_report"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/monthly-enrollment-contract-{month_name}-{year}.zip",
-      "table_name": "enrollment_contract",
-      "parameters": ["month_name", "year"],
-      "landing_path": "enrollment_contract"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/monthly-enrollment-cpsc-{month_name}-{year}.zip",
-      "table_name": "enrollment_cpsc",
-      "parameters": ["month_name", "year"],
-      "landing_path": "enrollment_cpsc"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/monthly-enrollment-plan-{month_name}-{year}.zip",
-      "table_name": "enrollment_plan",
-      "parameters": ["month_name", "year"],
-      "landing_path": "enrollment_plan"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/monthly-enrollment-state-{month_name}-{year}.zip",
-      "table_name": "enrollment_state",
-      "parameters": ["month_name", "year"],
-      "landing_path": "enrollment_state"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/ma-enrollment-state-county-contract-{month_name}-{year}-full-version.zip",
-      "table_name": "ma_enrollment_state_county_contract",
-      "parameters": ["month_name", "year"],
-      "landing_path": "ma_enrollment_state_county_contract"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/pdp-enrollment-state-county-contract-{month_name}-{year}-full-version.zip",
-      "table_name": "pdp_enrollment_state_county_contract",
-      "parameters": ["month_name", "year"],
-      "landing_path": "pdp_enrollment_state_county_contract"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/ma-enrollment-state-county-plan-{month_name}-{year}.zip",
-      "table_name": "ma_enrollment_state_county_plan",
-      "parameters": ["month_name", "year"],
-      "landing_path": "ma_enrollment_state_county_plan"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/pdp-enrollment-state-county-plan-{month_name}-{year}.zip",
-      "table_name": "pdp_enrollment_state_county_plan",
-      "parameters": ["month_name", "year"],
-      "landing_path": "pdp_enrollment_state_county_plan"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/ma-state-county-penetration-{month_name}-{year}.zip",
-      "table_name": "ma_state_county_penetration",
-      "parameters": ["month_name", "year"],
-      "landing_path": "ma_state_county_penetration"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/pdp-state-county-penetration-{month_name}-{year}.zip",
-      "table_name": "pdp_state_county_penetration",
-      "parameters": ["month_name", "year"],
-      "landing_path": "pdp_state_county_penetration"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/ma-contract-service-area-state-county-{month_name}-{year}.zip",
-      "table_name": "ma_contract_service_area",
-      "parameters": ["month_name", "year"],
-      "landing_path": "ma_contract_service_area"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/pdp-contract-service-area-state-county-{month_name}-{year}.zip",
-      "table_name": "pdp_contract_service_area",
-      "parameters": ["month_name", "year"],
-      "landing_path": "pdp_contract_service_area"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/snp-comprehensive-report-{month_name}-{year}.zip",
-      "table_name": "snp_comprehensive_report",
-      "parameters": ["month_name", "year"],
-      "landing_path": "snp_comprehensive_report"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/state-service-area-{month_name}-{year}.zip",
-      "table_name": "state_service_area",
-      "parameters": ["month_name", "year"],
-      "landing_path": "state_service_area"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/ma-hedis-pufs-{year}.zip",
-      "table_name": "ma_hedis_pufs",
-      "parameters": ["year"],
-      "landing_path": "ma_hedis_pufs"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/snp-hedis-pufs-{year}.zip",
-      "table_name": "snp_hedis_pufs",
-      "parameters": ["year"],
-      "landing_path": "snp_hedis_pufs"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/ma-plan-directory.zip",
-      "table_name": "ma_plan_directory",
-      "parameters": [],
-      "landing_path": "ma_plan_directory"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/pdp-plan-directory-{month_name}-{year}.zip",
-      "table_name": "pdp_plan_directory",
-      "parameters": ["month_name", "year"],
-      "landing_path": "pdp_plan_directory"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/ma-claims-processing-contacts.zip",
-      "table_name": "ma_claims_processing_contacts",
-      "parameters": [],
-      "landing_path": "ma_claims_processing_contacts"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/{year}/lis_enrollment_by_plan_{year}.zip",
-      "table_name": "lis_enrollment_by_plan",
-      "parameters": ["year"],
-      "landing_path": "lis_enrollment_by_plan"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/{year}_low_income_subsidy_contract_enrollment_by_county.zip",
-      "table_name": "lis_contract_enrollment_by_county",
-      "parameters": ["year"],
-      "landing_path": "lis_contract_enrollment_by_county"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/{year}/plan_crosswalk_{year}.zip",
-      "table_name": "plan_crosswalk",
-      "parameters": ["year"],
-      "landing_path": "plan_crosswalk"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/pbp-pufs/pbp-benefits-{year}-{quarter}.zip",
-      "table_name": "pbp_benefits",
-      "parameters": ["year", "quarter"],
-      "landing_path": "pbp_benefits"
-    },
-    {
-      "url_pattern": "https://www.cms.gov/files/zip/ad-hoc-cap-{month_name}-{year}.zip",
-      "table_name": "ad_hoc_cap",
-      "parameters": ["month_name", "year"],
-      "landing_path": "ad_hoc_cap"
-    }
-  ]
+﻿{
+    "mappings":  [
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/monthly-contract-summary-report-{month_name}-{year}.zip",
+                         "table_name":  "contract_summary_report",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "contract_summary_report",
+                         "comment":  "Monthly Contract and Enrollment Summary Report - Provides the number of contracts, MA only enrollment, Part D enrollment, and total enrollment by organization type. This report contains all organization types."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/monthly-enrollment-contract-{month_name}-{year}.zip",
+                         "table_name":  "enrollment_contract",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "enrollment_contract",
+                         "comment":  "Monthly Enrollment by Contract - Provides monthly enrollment for each contract. This report contains all organization types."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/monthly-enrollment-cpsc-{month_name}-{year}.zip",
+                         "table_name":  "enrollment_cpsc",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "enrollment_cpsc",
+                         "comment":  "Monthly Enrollment by Contract/Plan/State/County - Provides monthly enrollment at the contract/plan/state/county level for all organization types."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/monthly-enrollment-plan-{month_name}-{year}.zip",
+                         "table_name":  "enrollment_plan",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "enrollment_plan",
+                         "comment":  "Monthly Enrollment by Plan - Provides monthly enrollment at the contract/plan level for all organization types."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/monthly-enrollment-state-{month_name}-{year}.zip",
+                         "table_name":  "enrollment_state",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "enrollment_state",
+                         "comment":  "Monthly Enrollment by State - Provides monthly the number of Medicare members (eligibles), MA enrolled, Other enrolled and PDP enrolled for each state."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/ma-enrollment-state-county-contract-{month_name}-{year}-full-version.zip",
+                         "table_name":  "ma_enrollment_state_county_contract",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "ma_enrollment_state_county_contract",
+                         "comment":  "Monthly MA Enrollment by State/County/Contract - Provides monthly enrollment at the state/county/contract level for all organization types except for PDP and employer-direct PDP. Note: An abridged version is also provided that excludes rows with 10 or less enrollees."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/pdp-enrollment-state-county-contract-{month_name}-{year}-full-version.zip",
+                         "table_name":  "pdp_enrollment_state_county_contract",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "pdp_enrollment_state_county_contract",
+                         "comment":  "Monthly PDP Enrollment by State/County/Contract - Provides monthly enrollment at the state/county/contract level for PDP and employer-direct PDP organizations. Note: An abridged version is also provided that excludes rows with 10 or less enrollees."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/ma-enrollment-state-county-plan-{month_name}-{year}.zip",
+                         "table_name":  "ma_enrollment_state_county_plan",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "ma_enrollment_state_county_plan",
+                         "comment":  "Monthly MA Enrollment by State/County/Plan Type - Provides the monthly enrollment at the state/county/plan type (Plan Benefit Package type) for all organization types except for PDP and employer-direct PDP organizations."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/pdp-enrollment-state-county-plan-{month_name}-{year}.zip",
+                         "table_name":  "pdp_enrollment_state_county_plan",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "pdp_enrollment_state_county_plan",
+                         "comment":  "Monthly PDP Enrollment by State/County/Plan Type - Provides the monthly enrollment at the state/county/plan type (Plan Benefit Package type) for all PDP and employer-direct PDP organizations."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/ma-state-county-penetration-{month_name}-{year}.zip",
+                         "table_name":  "ma_state_county_penetration",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "ma_state_county_penetration",
+                         "comment":  "MA State/County Penetration - Provides MA market penetration rates at the state/county level."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/pdp-state-county-penetration-{month_name}-{year}.zip",
+                         "table_name":  "pdp_state_county_penetration",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "pdp_state_county_penetration",
+                         "comment":  "PDP State/County Penetration - Provides PDP market penetration rates at the state/county level."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/ma-contract-service-area-state-county-{month_name}-{year}.zip",
+                         "table_name":  "ma_contract_service_area",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "ma_contract_service_area",
+                         "comment":  "MA Contract Service Area by State/County - Provides contract service area by state and county for all organization types except for PDP and employer-direct PDP."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/pdp-contract-service-area-state-county-{month_name}-{year}.zip",
+                         "table_name":  "pdp_contract_service_area",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "pdp_contract_service_area",
+                         "comment":  "PDP Contract Service Area by State/County - Provides contract service area by state and county for PDP and employer-direct PDP organizations."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/snp-comprehensive-report-{month_name}-{year}.zip",
+                         "table_name":  "snp_comprehensive_report",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "snp_comprehensive_report",
+                         "comment":  "Special Needs Plan (SNP) Data - Provides monthly plan enrollment for each SNP and provides totals by SNP type."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/state-service-area-{month_name}-{year}.zip",
+                         "table_name":  "state_service_area",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "state_service_area",
+                         "comment":  "State Service Area - Provides the list of states covered in whole or in part by each contract. This file contains all organization types."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/ma-hedis-pufs-{year}.zip",
+                         "table_name":  "ma_hedis_pufs",
+                         "parameters":  [
+                                            "year"
+                                        ],
+                         "landing_path":  "ma_hedis_pufs",
+                         "comment":  "HEDIS Public Use Files - Provides annual Medicare Health Plan Employer Data and Information Set (HEDIS) performance measures."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/snp-hedis-pufs-{year}.zip",
+                         "table_name":  "snp_hedis_pufs",
+                         "parameters":  [
+                                            "year"
+                                        ],
+                         "landing_path":  "snp_hedis_pufs",
+                         "comment":  "HEDIS Public Use Files - Provides annual Medicare Health Plan Employer Data and Information Set (HEDIS) performance measures."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/ma-plan-directory.zip",
+                         "table_name":  "ma_plan_directory",
+                         "parameters":  [
+
+                                        ],
+                         "landing_path":  "ma_plan_directory",
+                         "comment":  "MA Plan Directory - Provides a plan contact for each MA, cost, PACE, and demo organization. Note: This directory is populated using the Plan Directory Contact for public web site field maintained by organizations in HPMS."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/pdp-plan-directory-{month_name}-{year}.zip",
+                         "table_name":  "pdp_plan_directory",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "pdp_plan_directory",
+                         "comment":  "PDP Plan Directory - Provides a plan contact for each PDP organization. Note: This directory is populated using the Plan Directory Contact for public web site field maintained by organizations in HPMS."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/ma-claims-processing-contacts.zip",
+                         "table_name":  "ma_claims_processing_contacts",
+                         "parameters":  [
+
+                                        ],
+                         "landing_path":  "ma_claims_processing_contacts",
+                         "comment":  "MA Claims Processing Contacts - Provides a claims processing contact for each MA, cost, PACE, and demo organization. Note: This directory is populated using the MA Claims Processing Contact field maintained by organizations in HPMS."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/{year}/lis_enrollment_by_plan_{year}.zip",
+                         "table_name":  "lis_enrollment_by_plan",
+                         "parameters":  [
+                                            "year"
+                                        ],
+                         "landing_path":  "lis_enrollment_by_plan",
+                         "comment":  "LIS Enrollment by Plan - Provides low income subsidy enrollment at the contract/plan level for all organizations offering Part D."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/{year}_low_income_subsidy_contract_enrollment_by_county.zip",
+                         "table_name":  "lis_contract_enrollment_by_county",
+                         "parameters":  [
+                                            "year"
+                                        ],
+                         "landing_path":  "lis_contract_enrollment_by_county",
+                         "comment":  "LIS Contract Enrollment by County - Provides low income subsidy enrollment at the contract/plan level for all organizations offering Part D."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/{year}/plan_crosswalk_{year}.zip",
+                         "table_name":  "plan_crosswalk",
+                         "parameters":  [
+                                            "year"
+                                        ],
+                         "landing_path":  "plan_crosswalk",
+                         "comment":  "Plan Crosswalks - Provides the list of annual plan crosswalks for all organization types."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/research-statistics-data-and-systems/statistics-trends-and-reports/mcradvpartdenroldata/downloads/pbp-pufs/pbp-benefits-{year}-{quarter}.zip",
+                         "table_name":  "pbp_benefits",
+                         "parameters":  [
+                                            "year",
+                                            "quarter"
+                                        ],
+                         "landing_path":  "pbp_benefits",
+                         "comment":  "Benefits Data - Provides approved MA and Part D benefits information for all organizations that submit a bid."
+                     },
+                     {
+                         "url_pattern":  "https://www.cms.gov/files/zip/ad-hoc-cap-{month_name}-{year}.zip",
+                         "table_name":  "ad_hoc_cap",
+                         "parameters":  [
+                                            "month_name",
+                                            "year"
+                                        ],
+                         "landing_path":  "ad_hoc_cap",
+                         "comment":  "Corrective Action Plans - Information on ad hoc Corrective Action Plan (CAP) requests can now be found using this link: /Medicare/Compliance-and-Audits/Part-C-and-Part-D-Compliance-and-Audits/Part-C-and-Part-D-Compliance-Actions."
+                     }
+                 ]
 }
