@@ -17,14 +17,6 @@ resources:
               schema: ${var.schema}
               max_parallel: "10"
           
-          new_cluster:
-            spark_version: "15.4.x-scala2.12"
-            node_type_id: "i3.xlarge"
-            num_workers: 4
-            spark_conf:
-              "spark.databricks.delta.optimizeWrite.enabled": "true"
-              "spark.databricks.delta.autoCompact.enabled": "true"
-          
           timeout_seconds: 43200  # 12 hours
           max_retries: 1
       

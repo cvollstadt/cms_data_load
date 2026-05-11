@@ -140,13 +140,16 @@ def write_csv_to_volume(csv_content: bytes, filename: str, volume_path: str) -> 
         True if successful, False otherwise
     """
     try:
-        # Ensure directory exists
-        os.makedirs(volume_path, exist_ok=True)
+        # Ensure directory exists using dbutils.fs (Volumes require dbutils, not os.makedirs)
+        dbutils.fs.mkdirs(volume_path)
         
-        # Write file
-        file_path = os.path.join(volume_path, filename)
-        with open(file_path, 'wb') as f:
-            f.write(csv_content)
+        # Build full file path
+        file_path = f"{volume_path}/{filename}"
+        
+        # Write file using dbutils.fs (decode bytes to string for put)
+        # Note: dbutils.fs.put expects string content
+        content_str = csv_content.decode('utf-8')
+        dbutils.fs.put(file_path, content_str, overwrite=True)
         
         file_size = len(csv_content)
         print(f"✓ Wrote {file_path} ({file_size} bytes)")
@@ -217,5 +220,5 @@ else:
 # COMMAND ----------
 
 # Return result
-dbutils.notebook.exit(result)
-
+import json
+dbutils.notebook.exit(json.dumps(result))

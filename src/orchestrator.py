@@ -279,5 +279,5 @@ print("="*60)
 # COMMAND ----------
 
 # Return summary
-dbutils.notebook.exit(summary)
-
+import json
+dbutils.notebook.exit(json.dumps(summary))

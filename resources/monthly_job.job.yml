@@ -6,7 +6,7 @@ resources:
       name: CMS Data Monthly Incremental Load
       
       schedule:
-        quartz_cron_expression: "0 0 5 * *"  # Run at midnight on the 5th of every month
+        quartz_cron_expression: "0 0 0 5 * ? *"  # Run at midnight on the 5th of every month (Quartz format: sec min hour day month day-of-week year)
         timezone_id: "America/New_York"
         pause_status: UNPAUSED
       
@@ -19,17 +19,6 @@ resources:
               catalog: ${var.catalog}
               schema: ${var.schema}
               max_parallel: "5"
-          
-          new_cluster:
-            spark_version: "15.4.x-scala2.12"
-            node_type_id: "i3.xlarge"
-            num_workers: 2
-            autoscale:
-              min_workers: 2
-              max_workers: 4
-            spark_conf:
-              "spark.databricks.delta.optimizeWrite.enabled": "true"
-              "spark.databricks.delta.autoCompact.enabled": "true"
           
           timeout_seconds: 7200  # 2 hours
           max_retries: 2

@@ -47,15 +47,17 @@ print(f"Checkpoint path: {checkpoint_path}")
 # COMMAND ----------
 
 # Verify source path exists
+import json
+
 try:
     files = dbutils.fs.ls(source_path)
     print(f"✓ Source path exists with {len(files)} entries")
 except Exception as e:
     print(f"⚠ Source path not found or empty: {source_path}")
-    dbutils.notebook.exit({
+    dbutils.notebook.exit(json.dumps({
         "status": "no_source_data",
         "message": f"Source path {source_path} does not exist or is empty"
-    })
+    }))
 
 # COMMAND ----------
 
@@ -153,5 +155,5 @@ print(f"   Latest load: {latest_load}")
 # COMMAND ----------
 
 # Return result
-dbutils.notebook.exit(result)
-
+import json
+dbutils.notebook.exit(json.dumps(result))
