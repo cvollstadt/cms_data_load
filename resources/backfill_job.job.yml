@@ -11,7 +11,7 @@ resources:
             notebook_path: ../src/orchestrator.py
             base_parameters:
               mode: "backfill"
-              start_year: "2021"
+              start_year: "2025"
               end_year: "2026"
               catalog: ${var.catalog}
               schema: ${var.schema}

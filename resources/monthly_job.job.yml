@@ -8,7 +8,7 @@ resources:
       schedule:
         quartz_cron_expression: "0 0 0 5 * ? *"  # Run at midnight on the 5th of every month (Quartz format: sec min hour day month day-of-week year)
         timezone_id: "America/New_York"
-        pause_status: UNPAUSED
+        pause_status: PAUSED
       
       tasks:
         - task_key: monthly_orchestrator
