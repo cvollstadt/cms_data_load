@@ -89,7 +89,7 @@ df = (spark.readStream
 # Add metadata columns for lineage and tracking
 df_with_metadata = (df
     .withColumn("_load_timestamp", current_timestamp())
-    .withColumn("_source_file", input_file_name())
+    .withColumn("_source_file", col("_metadata.file_path"))  # ✅ Unity Catalog compatible
     .withColumn("_processing_date", lit(datetime.now().strftime("%Y-%m-%d")))
 )
 
@@ -109,7 +109,6 @@ df_with_metadata = (df
 spark.sql(f"""
     CREATE TABLE IF NOT EXISTS {full_table_name}
     USING DELTA
-    LOCATION '/mnt/cms_data/{table_name}'
     COMMENT 'CMS data loaded via Auto Loader'
 """)
 

@@ -19,7 +19,7 @@ result = dbutils.notebook.run(
         "url": "https://www.cms.gov/files/zip/ma-plan-directory.zip",
         "landing_path": "test_ma_plan_directory",
         "catalog": "sandbox",
-        "schema": "cms_data_raw",
+        "schema": "cvollstadt",
         "year": "",
         "month": ""
     }
@@ -48,7 +48,7 @@ print("\n✅ Test 1 PASSED: Download & Extract works")
 # COMMAND ----------
 
 # Check if CSV landed in Volume
-landing_path = "/Volumes/sandbox/cms_data_raw/cms_landing/test_ma_plan_directory"
+landing_path = "/Volumes/sandbox/cvollstadt/cms_landing/test_ma_plan_directory"
 
 try:
     files = dbutils.fs.ls(landing_path)
@@ -78,8 +78,8 @@ try:
                 "source_path": landing_path,
                 "table_name": "test_ma_plan_directory",
                 "catalog": "sandbox",
-                "schema": "cms_data_raw",
-                "checkpoint_path": "/Volumes/sandbox/cms_data_raw/cms_checkpoints/test_ma_plan_directory"
+                "schema": "cvollstadt",
+                "checkpoint_path": "/Volumes/sandbox/cvollstadt/cms_checkpoints/test_ma_plan_directory"
             }
         )
         
@@ -102,7 +102,7 @@ except Exception as e:
 
 # Check if table exists and has data
 try:
-    df = spark.table("sandbox.cms_data_raw.test_ma_plan_directory")
+    df = spark.table("sandbox.cvollstadt.test_ma_plan_directory")
     row_count = df.count()
     columns = df.columns
     
@@ -188,6 +188,6 @@ print("✅ Test 6: Table Mappings")
 print("="*60)
 print("\n🎉 ALL TESTS PASSED!")
 print("\nNext steps:")
-print("1. Clean up test data: DROP TABLE sandbox.cms_data_raw.test_ma_plan_directory")
+print("1. Clean up test data: DROP TABLE sandbox.cvollstadt.test_ma_plan_directory")
 print("2. Run small backfill: 1 year, 1-2 tables")
 print("3. Run full backfill")
