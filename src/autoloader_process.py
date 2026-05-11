@@ -18,21 +18,25 @@ from datetime import datetime
 
 # COMMAND ----------
 
+# DBTITLE 1,Cell 3
 # Widget parameters
 dbutils.widgets.text("source_path", "", "Source path in Volume (e.g., /Volumes/catalog/schema/cms_landing/table_name)")
 dbutils.widgets.text("table_name", "", "Target table name")
 dbutils.widgets.text("catalog", "sandbox", "Catalog name")
 dbutils.widgets.text("schema", "cms_data_raw", "Schema name")
 dbutils.widgets.text("checkpoint_path", "", "Checkpoint location (optional, will auto-generate if empty)")
+dbutils.widgets.text("comment", "", "Table comment/description")
 
 # COMMAND ----------
 
+# DBTITLE 1,Cell 4
 # Get parameters
 source_path = dbutils.widgets.get("source_path")
 table_name = dbutils.widgets.get("table_name")
 catalog = dbutils.widgets.get("catalog")
 schema = dbutils.widgets.get("schema")
 checkpoint_path = dbutils.widgets.get("checkpoint_path")
+comment = dbutils.widgets.get("comment")
 
 # Generate checkpoint path if not provided
 if not checkpoint_path:
@@ -43,6 +47,8 @@ full_table_name = f"{catalog}.{schema}.{table_name}"
 print(f"Source path: {source_path}")
 print(f"Target table: {full_table_name}")
 print(f"Checkpoint path: {checkpoint_path}")
+if comment:
+    print(f"Comment: {comment}")
 
 # COMMAND ----------
 
@@ -131,11 +137,14 @@ df_with_metadata = (df
 
 # COMMAND ----------
 
+# DBTITLE 1,Cell 10
 # Create table if it doesn't exist
+table_comment = comment if comment else "CMS data loaded via Auto Loader"
+
 spark.sql(f"""
     CREATE TABLE IF NOT EXISTS {full_table_name}
     USING DELTA
-    COMMENT 'CMS data loaded via Auto Loader'
+    COMMENT '{table_comment}'
 """)
 
 print(f"✓ Table {full_table_name} ready")

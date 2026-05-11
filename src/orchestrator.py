@@ -180,11 +180,13 @@ print(f"\n=== Phase 2: Processing {len(successful_tables)} tables with Auto Load
 
 # COMMAND ----------
 
+# DBTITLE 1,Cell 14
 processing_results = []
 
 for i, table_name in enumerate(sorted(successful_tables), 1):
     # Find landing path for this table
     landing_path = next((m["landing_path"] for m in mappings if m["table_name"] == table_name), table_name)
+    table_comment = next((m["comment"] for m in mappings if m["table_name"] == table_name), "")
     
     source_path = f"/Volumes/{catalog}/{schema}/cms_landing/{landing_path}"
     
@@ -196,7 +198,8 @@ for i, table_name in enumerate(sorted(successful_tables), 1):
             "table_name": table_name,
             "catalog": catalog,
             "schema": schema,
-            "checkpoint_path": ""  # Will auto-generate
+            "checkpoint_path": "",  # Will auto-generate
+            "comment": table_comment
         }
         
         result = dbutils.notebook.run(
