@@ -1,12 +1,13 @@
 # Historical Backfill Job for CMS Data
-# One-time execution to load 5 years of historical data
+# Uses For Each task for efficient parallel downloads
 resources:
   jobs:
     cms_backfill_job:
       name: CMS Data Historical Backfill
       
       tasks:
-        - task_key: backfill_orchestrator
+        # Task 1: Generate list of download tasks
+        - task_key: generate_tasks
           notebook_task:
             notebook_path: ../src/orchestrator.py
             base_parameters:
@@ -15,9 +16,44 @@ resources:
               end_year: "2026"
               catalog: ${var.catalog}
               schema: ${resources.schemas.cms_data_schema.name}
-              max_parallel: "5"
           
-          timeout_seconds: 43200  # 12 hours
+          timeout_seconds: 600  # 10 minutes to generate tasks
+          max_retries: 1
+        
+        # Task 2: For Each - Download and extract files in parallel
+        - task_key: download_extract_foreach
+          depends_on:
+            - task_key: generate_tasks
+          for_each_task:
+            inputs: "{{tasks.generate_tasks.values.output}}"
+            concurrency: 10  # Parallel downloads
+            task:
+              task_key: download_extract
+              notebook_task:
+                notebook_path: ../src/download_extract.py
+                base_parameters:
+                  url: "{{input.url}}"
+                  landing_path: "{{input.landing_path}}"
+                  catalog: ${var.catalog}
+                  schema: ${resources.schemas.cms_data_schema.name}
+                  year: "{{input.year}}"
+                  month: "{{input.month}}"
+              
+              timeout_seconds: 600  # 10 minutes per download
+              max_retries: 1
+        
+        # Task 3: Process tables with Auto Loader
+        - task_key: process_tables
+          depends_on:
+            - task_key: download_extract_foreach
+          notebook_task:
+            notebook_path: ../src/process_tables.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${resources.schemas.cms_data_schema.name}
+              mode: "backfill"
+          
+          timeout_seconds: 7200  # 2 hours for processing
           max_retries: 1
       
       email_notifications:
@@ -31,8 +67,6 @@ resources:
           default: "2021"
         - name: end_year  
           default: "2026"
-        - name: max_parallel
-          default: "5"
       
       tags:
         environment: ${bundle.target}

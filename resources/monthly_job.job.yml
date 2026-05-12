@@ -1,26 +1,64 @@
 # Monthly Incremental Job for CMS Data
 # Scheduled to run on the 5th of each month to load current month's data
+# Uses For Each task for efficient parallel downloads
 resources:
   jobs:
     cms_monthly_incremental:
       name: CMS Data Monthly Incremental Load
       
       schedule:
-        quartz_cron_expression: "0 0 0 5 * ? *"  # Run at midnight on the 5th of every month (Quartz format: sec min hour day month day-of-week year)
+        quartz_cron_expression: "0 0 0 5 * ? *"  # Run at midnight on the 5th of every month
         timezone_id: "America/New_York"
         pause_status: PAUSED
       
       tasks:
-        - task_key: monthly_orchestrator
+        # Task 1: Generate list of download tasks
+        - task_key: generate_tasks
           notebook_task:
             notebook_path: ../src/orchestrator.py
             base_parameters:
               mode: "incremental"
               catalog: ${var.catalog}
               schema: ${resources.schemas.cms_data_schema.name}
-              max_parallel: "5"
           
-          timeout_seconds: 7200  # 2 hours
+          timeout_seconds: 600  # 10 minutes
+          max_retries: 1
+        
+        # Task 2: For Each - Download and extract files in parallel
+        - task_key: download_extract_foreach
+          depends_on:
+            - task_key: generate_tasks
+          for_each_task:
+            inputs: "{{tasks.generate_tasks.values.output}}"
+            concurrency: 10  # Parallel downloads
+            task:
+              task_key: download_extract
+              notebook_task:
+                notebook_path: ../src/download_extract.py
+                base_parameters:
+                  url: "{{input.url}}"
+                  landing_path: "{{input.landing_path}}"
+                  catalog: ${var.catalog}
+                  schema: ${resources.schemas.cms_data_schema.name}
+                  year: "{{input.year}}"
+                  month: "{{input.month}}"
+              
+              timeout_seconds: 600  # 10 minutes per download
+              max_retries: 2
+              retry_on_timeout: true
+        
+        # Task 3: Process tables with Auto Loader
+        - task_key: process_tables
+          depends_on:
+            - task_key: download_extract_foreach
+          notebook_task:
+            notebook_path: ../src/process_tables.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${resources.schemas.cms_data_schema.name}
+              mode: "incremental"
+          
+          timeout_seconds: 3600  # 1 hour for processing
           max_retries: 2
           retry_on_timeout: true
       
@@ -36,7 +74,7 @@ resources:
         no_alert_for_skipped_runs: false
         no_alert_for_canceled_runs: false
       
-      timeout_seconds: 7200
+      timeout_seconds: 7200  # 2 hour total job timeout
       max_concurrent_runs: 1
       
       tags:
