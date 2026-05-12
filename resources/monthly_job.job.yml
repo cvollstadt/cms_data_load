@@ -52,7 +52,7 @@ resources:
           depends_on:
             - task_key: download_extract_foreach
           notebook_task:
-            notebook_path: ../src/process_tables.py
+            notebook_path: ../src/process_tables-1.ipynb
             base_parameters:
               catalog: ${var.catalog}
               schema: ${resources.schemas.cms_data_schema.name}
